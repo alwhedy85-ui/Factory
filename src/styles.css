@@ -1,0 +1,145 @@
+@import "tailwindcss";
+@import "@fontsource/ibm-plex-sans-arabic/arabic-400.css";
+@import "@fontsource/ibm-plex-sans-arabic/arabic-500.css";
+@import "@fontsource/ibm-plex-sans-arabic/arabic-600.css";
+@import "@fontsource/ibm-plex-sans-arabic/arabic-700.css";
+@import "@fontsource/ibm-plex-sans-arabic/latin-400.css";
+@import "@fontsource/ibm-plex-sans-arabic/latin-500.css";
+@import "@fontsource/ibm-plex-sans-arabic/latin-600.css";
+@import "@fontsource/ibm-plex-sans-arabic/latin-700.css";
+@import "@fontsource/ibm-plex-mono/latin-500.css";
+@import "@fontsource/ibm-plex-mono/latin-600.css";
+
+@theme {
+  --font-sans: "IBM Plex Sans Arabic", "IBM Plex Sans", "Noto Naskh Arabic", "FreeSerif", sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+
+  --color-paper: #f3efe6;
+  --color-paper-2: #e7e0d2;
+  --color-card: #fffdf8;
+  --color-ink: #1c1915;
+  --color-muted: #6b6258;
+  --color-line: #d5ccbe;
+  --color-copper: #b4532a;
+  --color-copper-ink: #fff7f2;
+  --color-steel: #243038;
+  --color-steel-ink: #f4f7f8;
+  --color-ok: #1f6b45;
+  --color-ok-bg: #e5f3eb;
+  --color-warn: #9a3412;
+  --color-warn-bg: #fde8dc;
+
+  --shadow-card: 0 0 0 1px rgba(28, 25, 21, 0.06), 0 1px 2px rgba(28, 25, 21, 0.05);
+  --radius-card: 1rem;
+}
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: clip;
+  }
+
+  body {
+    margin: 0;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: clip;
+    background-color: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    line-height: 1.5;
+    background-image:
+      linear-gradient(to left, rgba(28, 25, 21, 0.04) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(28, 25, 21, 0.04) 1px, transparent 1px);
+    background-size: 1.5rem 1.5rem;
+  }
+
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+
+  button:disabled {
+    cursor: not-allowed;
+  }
+
+  img,
+  svg,
+  video,
+  canvas,
+  input,
+  select,
+  textarea,
+  table {
+    max-width: 100%;
+  }
+
+  table {
+    table-layout: fixed;
+  }
+
+  th,
+  td {
+    overflow-wrap: anywhere;
+  }
+}
+
+#root {
+  width: 100%;
+  max-width: 430px;
+  margin-inline: auto;
+  min-height: 100vh;
+}
+
+.safe-bottom {
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+.dock-pad {
+  padding-bottom: calc(5.25rem + env(safe-area-inset-bottom));
+}
+
+@media (min-width: 768px) {
+  .dock-pad {
+    padding-bottom: 2.5rem;
+  }
+}
+
+.only-print {
+  display: none;
+}
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+
+  .only-print {
+    display: block !important;
+  }
+
+  body {
+    background: white !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+  }
+}
